@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use Time::HiRes;
+
+my $reporting_interval = 1.0; # seconds
+my $bytes_this_interval = 0;
+my $start_time = [Time::HiRes::gettimeofday()];
+
+while (<>) 
+{
+  if (/ length (\d+):/) 
+{
+    if ($1 > 66)
+{
+    	$bytes_this_interval += $1;
+   	 my $elapsed_seconds = Time::HiRes::tv_interval($start_time);
+   	 if ($elapsed_seconds > $reporting_interval) 
+{
+     	  my $Mbps = ($bytes_this_interval / ($elapsed_seconds * 125000));
+      	 printf "%02d:%02d:%02d %10.2f Mbps\n", (localtime())[2,1,0],$Mbps;
+      	 $start_time = [Time::HiRes::gettimeofday()];
+      	 $bytes_this_interval = 0;
+}   
+}
+}
+}

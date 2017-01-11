@@ -1,0 +1,67 @@
+plot "trace1" using 1:4 title "cwnd" with linespoints lt rgb 'red',\
+"trace1" using 1:($11/125000) title "cwnd" with lines lt rgb 'blue',\
+"trace1" using 1:($12/125000) title "rtt" with lines lt rgb 'black',\
+"trace1" using 1:($13/125000) title "rtt" with lines lt rgb 'green'
+
+plot "trace1" using 1:4 title "cwnd" with linespoints lt rgb 'red',\
+"trace1" using 1:($6/1000) title "cwnd" with lines lt rgb 'blue'
+
+plot "trace2" using 1:4 title "cwnd" with linespoints lt rgb 'red',\
+"trace2" using 1:($11/125000) title "cwnd" with lines lt rgb 'blue',\
+"trace2" using 1:($12/125000) title "rtt" with lines lt rgb 'black',\
+"trace2" using 1:($13/125000) title "rtt" with lines lt rgb 'green'
+
+plot "trace1" using 1:($11/125000) title "rtt" with points lt rgb 'black',\
+"trace2" using 1:($11/125000) title "rtt" with points lt rgb 'blue'
+
+plot  "trace2" using 1:($11/125000) title "rtt" with lines lt rgb 'black',\
+"trace2" using 1:($12/125000) title "rtt" with lines lt rgb 'blue'
+
+plot "trace1" using 1:($11/125000) title "rtt" with lines lt rgb 'black',\
+"trace1" using 1:($12/125000) title "rtt" with lines lt rgb 'blue'
+
+plot "trace2" using 1:4 title "cwnd" with linespoints lt rgb 'red',\
+"trace2" using 1:($6/1000) title "cwnd" with points lt rgb 'blue',\
+"trace2" using 1:($11/125000) title "rtt" with lines lt rgb 'black',\
+"trace2" using 1:($13/125000) title "rtt" with lines lt rgb 'blue'
+
+plot "tcptrace.22222" using 1:($11/125000) title "cwnd" with points lt rgb 'red',\
+"tcptrace.22222" using 1:($12/125000) title "cwnd" with points lt rgb 'blue'
+
+plot "trace1" using 1:($11/125000) title "cwnd" with linespoints lt rgb 'red',\
+"trace1" using 1:($12/125000) title "cwnd" with linespoints lt rgb 'blue',\
+"trace2" using 1:($11/125000) title "rtt" with lines lt rgb 'black',\
+"trace2" using 1:($12/125000) title "rtt" with lines lt rgb 'brown'
+
+plot "trace2" using 1:4 title "cwnd" with linespoints lt rgb 'red',\
+"trace2" using 1:($6/1000) title "cwnd" with linespoints lt rgb 'blue',\
+"trace2" using 1:($11/125000) title "rtt" with lines lt rgb 'black',\
+"trace2" using 1:($12/125000) title "rtt" with lines lt rgb 'brown',\
+"trace2" using 1:($13/125000) title "rtt" with lines lt rgb 'blue'
+
+plot "1440.pcap_agg_tp_smp" using 1:($2/125000) title "tp-360" with linespoints lt rgb 'red'
+
+plot "1080.pcap_agg_tp_smp" using 1:($2/125000) title "tp-360" with linespoints lt rgb 'red'
+
+plot "youtube_af2ae_tp_smp" using 1:($2>=1875000 ? 0:($2/125000)) title "tp-360" with linespoints lt rgb 'red',\
+"youtube_v2u_tp_smp" using 1:($2/125000) title "tp-1080" with linespoints lt rgb 'blue',\
+"youtube_v2u_tp_smp" using 1:($2/125000) title "tp-1080" with linespoints lt rgb 'black',\
+"youtube_x2w_tp_smp" using 1:($2/125000) title "tp-1080" with linespoints lt rgb 'green'
+
+plot "youtube720_single_agg_tp_smp" using 1:($2/125000) title "tp-720" with linespoints lt rgb 'blue',\
+"youtube1440_agg_tp_smp" using 1:($2/125000) title "tp-1440" with linespoints lt rgb 'red'
+
+plot "youtube720_combine_agg_tp_smp" using 1:($2/125000) title "tp-720" with linespoints lt rgb 'blue',\
+"youtube1440_combine_agg_tp_smp" using 1:($2>=1875000 ? 0:($2/125000)) title "tp-1440" with linespoints lt rgb 'red'
+
+plot "youtube1440_z2y_tp_avg" using  ($1-1461007349):($2/125000) title "tp-360" with linespoints lt rgb 'blue',\
+"youtube720_z2y_tp_avg" using ($1-1461007349):($2/125000) title "tp-1080" with linespoints lt rgb 'red',\
+"youtube_r2q_tp_smp" using 1:($2/125000) title "tp-1080" with points lt rgb 'black',\
+"youtube_x2w_tp_smp" using 1:($2/125000) title "tp-1080" with points lt rgb 'green'
+
+plot "youtube_360_tp_smp"  using 1:($2/125000) title "tp-360" with linespoints lt rgb 'red',\
+"youtube_1080_tp_smp" every ::::100 using 1:($2/125000) title "tp-1080" with lines lt rgb 'blue'
+
+plot "youtube_1080_tp_smp" using 1:($2/125000) title "tp-1080" with lines lt rgb 'blue'
+
+scp fan_tcp@10.42.0.67:/home/fan_tcp/videotest videotest

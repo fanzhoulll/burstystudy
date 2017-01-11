@@ -1,0 +1,12 @@
+#!/bin/bash
+direc=$(pwd)
+tcptrace -N $1;
+./xpl2gpl b2a_owin.xpl;
+./gpl2better.py b2a_owin.datasets;
+mv smp $direc/tcptrace/${1}"_unacked_smp"
+mv avg $direc/tcptrace/${1}"_unacked_avg"
+rm $direc/*.xpl;
+rm $direc/*.labels;
+rm $direc/*.gpl;
+rm $direc/*.datasets;
+echo "done"

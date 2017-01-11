@@ -1,0 +1,2 @@
+plot "./results/youtube2160_p2o_seq_smp" using ($1-1480620834.99):($2-1534783055.0) title "p2o" with points linecolor 1 ,"./results/youtube2160_r2q_seq_smp" using ($1-1480620835.02):($2-404222652.0) title "r2q" with points linecolor 2
+pause -1

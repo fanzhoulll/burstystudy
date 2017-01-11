@@ -1,0 +1,13 @@
+#!/bin/bash
+direc=$(pwd)
+#$1: averaged over $1 samples
+tcptrace -n -S $1;
+./xpl2gpl ed2ec_tsg.xpl;
+./gpl2better.py ed2ec_tsg.datasets;
+mv smp $direc/tcptrace/${1}"_seq_smp"
+mv avg $direc/tcptrace/${1}"_seq_avg"
+rm $direc/*.xpl;
+rm $direc/*.labels;
+rm $direc/*.gpl;
+rm $direc/*.datasets;
+echo "done"

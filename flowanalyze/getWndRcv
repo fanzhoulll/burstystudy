@@ -1,0 +1,12 @@
+#!/bin/bash
+direc=$(pwd)
+tcptrace -H $1;
+./xpl2gpl bs2bt_rcwnd.xpl;
+./gpl2better.py bs2bt_rcwnd.datasets;
+mv smp $direc/tcptrace/${1}"_wnd_smp"
+mv avg $direc/tcptrace/${1}"_wnd_avg"
+rm $direc/*.xpl;
+rm $direc/*.labels;
+rm $direc/*.gpl;
+rm $direc/*.datasets;
+echo "done"
