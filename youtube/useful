@@ -1,0 +1,2 @@
+sudo tcpdump -n tcp -i eth1 -p -s 96 -w youtube1440
+./tcptrace -n ./pcap/youtube1440_1800 > log
